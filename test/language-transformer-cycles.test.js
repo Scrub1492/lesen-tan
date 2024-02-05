@@ -15,12 +15,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import {readFileSync} from 'fs';
-import {join, dirname as pathDirname} from 'path';
-import {fileURLToPath} from 'url';
+// import {readFileSync} from 'fs';
+// import {join, dirname as pathDirname} from 'path';
+// import {fileURLToPath} from 'url';
 import {describe, test} from 'vitest';
-import {parseJson} from '../dev/json.js';
+// import {parseJson} from '../dev/json.js';
 import {LanguageTransformer} from '../ext/js/language/language-transformer.js';
+import descriptor from '../ext/data/language/japanese-transforms.js';
 
 class DeinflectionNode {
     /**
@@ -105,10 +106,6 @@ function arraysAreEqual(rules1, rules2) {
 
 describe('Deinflection data', () => {
     test('Check for cycles', ({expect}) => {
-        const dirname = pathDirname(fileURLToPath(import.meta.url));
-
-        /** @type {import('language-transformer').LanguageTransformDescriptor} */
-        const descriptor = parseJson(readFileSync(join(dirname, '../ext/data/language/japanese-transforms.json'), {encoding: 'utf8'}));
         const languageTransformer = new LanguageTransformer();
         languageTransformer.addDescriptor(descriptor);
 

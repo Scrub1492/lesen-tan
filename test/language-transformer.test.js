@@ -15,15 +15,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+import descriptor from '../ext/data/language/japanese-transforms.js';
 
-import fs from 'fs';
-import {fileURLToPath} from 'node:url';
-import path from 'path';
+// import fs from 'fs';
+// import {fileURLToPath} from 'node:url';
+// import path from 'path';
 import {describe, expect, test} from 'vitest';
-import {parseJson} from '../dev/json.js';
+// import {parseJson} from '../dev/json.js';
 import {LanguageTransformer} from '../ext/js/language/language-transformer.js';
 
-const dirname = path.dirname(fileURLToPath(import.meta.url));
+// const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /**
  * @param {LanguageTransformer} languageTransformer
@@ -1148,8 +1149,6 @@ function testDeinflections() {
     ];
     /* eslint-enable no-multi-spaces */
 
-    /** @type {import('language-transformer').LanguageTransformDescriptor} */
-    const descriptor = parseJson(fs.readFileSync(path.join(dirname, '..', 'ext', 'data/language/japanese-transforms.json'), {encoding: 'utf8'}));
     const languageTransformer = new LanguageTransformer();
     languageTransformer.addDescriptor(descriptor);
 
