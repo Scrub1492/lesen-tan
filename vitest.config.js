@@ -15,11 +15,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import codspeedPlugin from '@codspeed/vitest-plugin';
+// import codspeedPlugin from '@codspeed/vitest-plugin';
 import {configDefaults, defineConfig} from 'vitest/config';
 
 export default defineConfig({
-    plugins: [codspeedPlugin()],
+    // plugins: [codspeedPlugin()],
     test: {
         exclude: [
             ...configDefaults.exclude,
