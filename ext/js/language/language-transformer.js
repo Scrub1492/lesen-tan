@@ -134,11 +134,11 @@ export class LanguageTransformer {
         for (let i = 0; i < results.length; ++i) {
             const {text, conditions, trace} = results[i];
             for (const {name, rules, matchConditions} of this._transforms) {
-                // if (matchConditions) {
-                //     for (const endsWithCondition of matchConditions.endsWith) {
-                //         if (!text.endsWith(endsWithCondition)) { continue; }
-                //     }
-                // }
+                if (matchConditions) {
+                    for (const endsWithCondition of matchConditions.endsWith) {
+                        if (!text.endsWith(endsWithCondition)) { continue; }
+                    }
+                }
 
                 for (let j = 0, jj = rules.length; j < jj; ++j) {
                     const rule = rules[j];
